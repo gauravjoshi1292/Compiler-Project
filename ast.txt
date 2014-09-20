@@ -1,0 +1,90 @@
+program otherFunctions mainFunction
+mainFunction TK_MAIN stmts // pull up TK_MAIN 
+otherFunctions function otherFunctions
+otherFunctions E
+function TK_FUNID input_par output_par stmts // pull up TK_FUNID 
+input_par TK_INPUT TK_PARAMETER TK_LIST parameter_list // pull up TK_INPUT
+output_par TK_OUTPUT TK_PARAMETER TK_LIST parameter_list // pull up TK_OUTPUT
+output_par E
+parameter_list dataType TK_ID remaining_list
+dataType primitiveDatatype
+dataType constructedDatatype
+primitiveDatatype TK_INT // pull up TK_INT
+primitiveDatatype TK_REAL // pull up TK_REAL
+constructedDatatype TK_RECORD TK_RECORDID // pull up TK_RECORD
+remaining_list parameter_list
+remaining_list E
+stmts typeDefinitions declarations otherStmts returnStmt
+typeDefinitions typeDefinition typeDefinitions
+typeDefinitions E
+typeDefinition TK_RECORD TK_RECORDID fieldDefinitions // pull up TK_RECORD
+fieldDefinitions fieldDefinition fieldDefinition moreFields
+fieldDefinition TK_TYPE primitiveDatatype TK_FIELDID // pull up TK_TYPE
+moreFields fieldDefinition moreFields
+moreFields E
+declarations declaration declarations
+declarations E
+declaration TK_TYPE dataType TK_ID global_or_not // pull up TK_TYPE
+global_or_not TK_GLOBAL // pull up TK_GLOBAL
+global_or_not E
+otherStmts stmt otherStmts
+otherStmts E
+stmt assignmentStmt
+stmt iterativeStmt
+stmt conditionalStmt
+stmt ioStmt 
+stmt funCallStmt
+assignmentStmt singleOrRecId TK_ASSIGNOP arithmeticExpression 
+singleOrRecId TK_ID singleOrRecIDElse // pull up TK_ID
+singleOrRecIDElse TK_DOT TK_FIELDID // pull up TK_DOT
+singleOrRecIDElse E
+funCallStmt outputParameters TK_CALL TK_FUNID TK_WITH TK_PARAMETERS inputParameters
+outputParameters idList TK_ASSIGNOP
+outputParameters E
+inputParameters idList
+iterativeStmt TK_WHILE booleanExpression stmt otherStmts // pull up TK_WHILE
+conditionalStmt TK_IF booleanExpression TK_THEN stmt otherStmts elsePart // pull up TK_IF
+elsePart TK_ELSE stmt otherStmts // pull up TK_ELSE
+conditionalStmt TK_IF booleanExpression TK_THEN stmt otherStmts // pull up TK_IF
+ioStmt TK_READ singleOrRecId // pull up TK_READ
+ioStmt TK_WRITE allVar // pull up TK_WRITE
+allVar var
+allVar TK_RECORDID TK_DOT TK_FIELDID // pull up TK_RECORDID
+arithmeticExpression term expPrime 
+expPrime lowPrecedenceOperators term expPrime // pull up lowPrecedenceOperators 
+expPrime E
+term factor termPrime
+termPrime highPrecedenceOperators factor termPrime // pull up highPrecedenceOperators
+termPrime E
+factor arithmeticExpression
+factor all
+highPrecedenceOperator TK_MUL // pull up
+highPrecedenceOperator TK_DIV // pull up
+lowPrecedenceOperators TK_PLUS // pull up
+lowPrecedenceOperators TK_MINUS // pull up
+all TK_ID // pull up
+all TK_NUM // pull up
+all TK_RNUM // pull up
+all TK_RECORDID temp // pull up
+temp E
+temp TK_FIELD // pull up
+booleanExpression booleanExpression logicalOp booleanExpression // pull up // booleanExpression logicalOp booleanExpression booleanExpression
+booleanExpression var relationalOp var // pull up // relationalOp var var
+booleanExpression TK_NOT booleanExpression // pull up
+var TK_ID // pull up
+var TK_NUM // pull up
+var TK_RNUM // pull up
+logicalOp TK_AND // pull up
+logicalOp TK_OR // pull up
+relationalOp TK_LT // pull up 
+relationalOp TK_LE // pull up
+relationalOp TK_EQ // pull up
+relationalOp TK_GT // pull up
+relationalOp TK_GE // pull up
+relationalOp TK_NE // pull up
+returnStmt TK_RETURN optionalReturn // pull up TK_RETURN
+optionalReturn idList
+optionalReturn E
+idList TK_ID more_ids // pull up TK_ID
+more_ids idList
+more_ids E // meakeleaf

@@ -1,0 +1,30 @@
+
+============================
+	Symbol Table 1	
+============================
+Hash-Index of Symbol Table 41
+Function name _main 
+Number of Input Arguments 0
+Number of Output Arguments 0
+b3		24	token=3	offset=64	line=12
+c4bd56		31	token=3	offset=60	line=11
+
+============================
+	Symbol Table 2: Records	
+============================
+Hash-Index of Record Symbol Table 0
+Record name #marks
+		59	token=2	offset=24	line=8
+		91	token=2	offset=8	line=6
+		96	token=2	offset=16	line=7
+Hash-Index of Record Symbol Table 77
+Record name #marks
+
+============================
+	Symbol Table 3: Global Variable	
+============================
+b3		24	token=3	offset=52	line=10
+
+============================
+		End		
+============================
